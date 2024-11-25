@@ -14,6 +14,7 @@ const PageContainer = styled.div`
   padding: 20px;
 
   @media (max-width: 768px) {
+    flex-direction: column;
     padding: 10px;
   }
 `;
@@ -35,7 +36,7 @@ const ContentWrapper = styled.div`
 `;
 
 const PageTitle = styled.h1`
-  text-align: left;
+  text-align: center;
   color: #fff;
   font-size: 36px;
   margin-bottom: 30px;
@@ -61,6 +62,11 @@ const ProjectsWrapper = styled.div`
     gap: 15px;
     padding: 10px;
   }
+
+  @media (max-width: 480px) {
+    gap: 10px;
+    padding: 5px;
+  }
 `;
 
 const CardWrapper = styled(motion.div)`
@@ -69,8 +75,7 @@ const CardWrapper = styled(motion.div)`
   border-radius: 15px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s;
-
-  width: 130%;
+  width: 100%;
 
   &:hover {
     transform: translateY(-10px);
@@ -107,7 +112,14 @@ const SidebarCard = styled(CardWrapper)`
     box-shadow: none;
     padding: 10px;
   }
+
+  @media (max-width: 768px) {
+    position: static;
+    margin-bottom: 20px;
+  }
 `;
+
+// Ensure the buttons/forms inside `ContactForm` and `ProfileCard` are also touch-friendly
 
 // Animation variants for Framer Motion
 const cardVariants = {

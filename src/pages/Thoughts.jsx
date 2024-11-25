@@ -12,6 +12,14 @@ const ThoughtsWrapper = styled(motion.div)`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media (max-width: 768px) {
+    padding: 40px 20px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 20px;
+  }
 `;
 
 const PageTitle = styled.h1`
@@ -19,24 +27,43 @@ const PageTitle = styled.h1`
   font-weight: bold;
   margin-bottom: 50px;
   color: #f39c12;
+
+  @media (max-width: 768px) {
+    font-size: 36px;
+    margin-bottom: 30px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
 `;
 
 const ThoughtsGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 40px;
   padding: 20px;
   width: 100%;
   max-width: 1300px;
-  justify-items: center;
+
+  @media (max-width: 768px) {
+    gap: 20px;
+    padding: 10px;
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
 `;
 
 const ThoughtCard = styled(motion.div)`
   background-color: #333;
   border-radius: 15px;
-  padding: 60px;
+  padding: 40px;
   color: #ffffff;
-  max-width: 500px;
+  max-width: 400px;
   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s, background-color 0.3s;
   position: relative;
@@ -50,6 +77,14 @@ const ThoughtCard = styled(motion.div)`
   &:hover .icon {
     color: #1a1a1a;
   }
+
+  @media (max-width: 768px) {
+    padding: 30px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 20px;
+  }
 `;
 
 const ThoughtIcon = styled.div`
@@ -59,23 +94,49 @@ const ThoughtIcon = styled.div`
   font-size: 35px;
   color: #f39c12;
   transition: color 0.3s;
+
+  @media (max-width: 480px) {
+    font-size: 28px;
+  }
 `;
 
 const ThoughtTitle = styled.h2`
   font-size: 28px;
   margin-bottom: 10px;
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 20px;
+  }
 `;
 
 const ThoughtDate = styled.p`
   font-size: 16px;
   color: #aaa;
   margin-bottom: 20px;
+
+  @media (max-width: 480px) {
+    font-size: 14px;
+  }
 `;
 
 const ThoughtContent = styled.p`
   font-size: 18px;
   line-height: 1.8;
   color: #eee;
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 14px;
+    line-height: 1.4;
+  }
 `;
 
 const thoughtsData = [

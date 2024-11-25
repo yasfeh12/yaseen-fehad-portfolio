@@ -8,6 +8,7 @@ import pass from "./assets/pass.png";
 import readme from "./assets/readme.png";
 import tm from "./assets/tm.png";
 import gks from "./assets/gks.png";
+import market from "./assets/market.png";
 const projectsData = [
   {
     id: 1,
@@ -99,7 +100,7 @@ const projectsData = [
     title: "Marketplace",
     description:
       "An e-commerce platform similar to eBay for buying and selling items.",
-    image: "/images/marketplace.png",
+    image: market,
     technologies: ["React", "Node.js", "Bootstrap", "PostgreSQL"],
     link: "https://github.com/yasfeh12/fe-nc-marketplace",
     details:

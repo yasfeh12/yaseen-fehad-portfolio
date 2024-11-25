@@ -90,10 +90,9 @@ const About = () => (
   <AboutWrapper>
     <Heading>About Me</Heading>
     <Text>
-      I am a passionate and results-driven individual with 2 years of leadership
-      and operational experience. I have completed two intensive Front-End
-      JavaScript Development bootcamps, focusing on modern web development tools
-      and technologies.
+      I am a web developer specializing in front end work focused on UI/UX. I
+      have completed two intensive Front-End JavaScript Development bootcamps,
+      focusing on modern web development tools and technologies.
     </Text>
     <Heading>Technical Skills</Heading>
     <SkillsWrapper>

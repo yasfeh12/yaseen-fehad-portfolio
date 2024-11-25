@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import { FaGithub, FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
 import projectsData from "../projectsData";
-import profileImage from "../assets/pp.png";
 
 const WorkWrapper = styled(motion.div)`
   padding: 60px;
@@ -14,6 +14,10 @@ const WorkWrapper = styled(motion.div)`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media (max-width: 768px) {
+    padding: 20px;
+  }
 `;
 
 const PageTitle = styled(motion.h1)`
@@ -21,7 +25,16 @@ const PageTitle = styled(motion.h1)`
   font-weight: bold;
   margin-bottom: 30px;
   color: #f39c12;
-  animation: fadeInDown 1s ease-in-out;
+
+  @media (max-width: 768px) {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
 `;
 
 const Section = styled(motion.div)`
@@ -29,7 +42,10 @@ const Section = styled(motion.div)`
   width: 100%;
   margin-bottom: 60px;
   text-align: left;
-  animation: fadeIn 1.5s ease-in-out;
+
+  @media (max-width: 768px) {
+    margin-bottom: 40px;
+  }
 `;
 
 const SectionTitle = styled.h2`
@@ -37,6 +53,7 @@ const SectionTitle = styled.h2`
   margin-bottom: 20px;
   color: #f39c12;
   position: relative;
+
   &:after {
     content: "";
     position: absolute;
@@ -46,6 +63,15 @@ const SectionTitle = styled.h2`
     height: 3px;
     background-color: #f39c12;
   }
+
+  @media (max-width: 768px) {
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 24px;
+  }
 `;
 
 const ContactInfo = styled.div`
@@ -53,16 +79,19 @@ const ContactInfo = styled.div`
   align-items: center;
   gap: 15px;
   margin-bottom: 10px;
-`;
 
-const Icon = styled.div`
-  font-size: 24px;
-  color: #f39c12;
+  @media (max-width: 480px) {
+    gap: 10px;
+  }
 `;
 
 const ContactText = styled.p`
   font-size: 16px;
   color: #ccc;
+
+  @media (max-width: 480px) {
+    font-size: 14px;
+  }
 `;
 
 const ProjectsGrid = styled.div`
@@ -71,6 +100,10 @@ const ProjectsGrid = styled.div`
   gap: 40px;
   padding: 20px;
   justify-items: center;
+
+  @media (max-width: 480px) {
+    gap: 20px;
+  }
 `;
 
 const ProjectCard = styled(motion.div)`
@@ -81,11 +114,16 @@ const ProjectCard = styled(motion.div)`
   max-width: 400px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s, background-color 0.3s;
+  cursor: pointer;
 
   &:hover {
     transform: translateY(-8px);
     background-color: #f39c12;
     box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4);
+  }
+
+  @media (max-width: 480px) {
+    padding: 15px;
   }
 `;
 
@@ -96,8 +134,13 @@ const ProjectImage = styled.img`
   border-radius: 8px;
   margin-bottom: 15px;
   transition: transform 0.3s;
+
   ${ProjectCard}:hover & {
     transform: scale(1.05);
+  }
+
+  @media (max-width: 480px) {
+    height: 150px;
   }
 `;
 
@@ -105,12 +148,25 @@ const ProjectTitle = styled.h3`
   font-size: 24px;
   color: #ffffff;
   margin-bottom: 10px;
+
+  @media (max-width: 480px) {
+    font-size: 20px;
+  }
+`;
+
+const StyledIcon = styled.div`
+  font-size: 24px;
+  color: #f39c12;
 `;
 
 const ProjectDescription = styled.p`
   font-size: 16px;
   color: #aaa;
   margin-bottom: 15px;
+
+  @media (max-width: 480px) {
+    font-size: 14px;
+  }
 `;
 
 const ExperienceItem = styled(motion.div)`
@@ -118,9 +174,20 @@ const ExperienceItem = styled(motion.div)`
   font-size: 18px;
   color: #eee;
   line-height: 1.6;
+
+  @media (max-width: 480px) {
+    font-size: 16px;
+    line-height: 1.4;
+  }
 `;
 
 const WorkPage = () => {
+  const navigate = useNavigate(); // Initialize useNavigate
+
+  const handleProjectClick = (id) => {
+    navigate(`/projects/${id}`); // Navigate to ProjectDetailPage with project ID
+  };
+
   return (
     <WorkWrapper
       initial="hidden"
@@ -144,31 +211,30 @@ const WorkPage = () => {
         Yaseen Fehad
       </PageTitle>
 
-      {/* Personal Information Section */}
       <Section>
         <SectionTitle>Contact Information</SectionTitle>
         <ContactInfo>
-          <Icon>
+          <StyledIcon>
             <FaMapMarkerAlt />
-          </Icon>
+          </StyledIcon>
           <ContactText>Leeds, UK</ContactText>
         </ContactInfo>
         <ContactInfo>
-          <Icon>
+          <StyledIcon>
             <FaEnvelope />
-          </Icon>
+          </StyledIcon>
           <ContactText>YaseenFehad@gmail.com</ContactText>
         </ContactInfo>
         <ContactInfo>
-          <Icon>
+          <StyledIcon>
             <FaPhone />
-          </Icon>
+          </StyledIcon>
           <ContactText>07932692805</ContactText>
         </ContactInfo>
         <ContactInfo>
-          <Icon>
+          <StyledIcon>
             <FaGithub />
-          </Icon>
+          </StyledIcon>
           <a
             href="https://github.com/yasfeh12"
             target="_blank"
@@ -179,21 +245,17 @@ const WorkPage = () => {
         </ContactInfo>
       </Section>
 
-      {/* Personal Statement */}
       <Section>
         <SectionTitle>Personal Statement</SectionTitle>
         <p>
-          I am a passionate and results-driven individual with 2 years of
-          leadership and operational experience. I recently completed two
-          intensive Front-End JavaScript Development bootcamps, focusing on
-          modern web development tools and technologies. I am skilled in
-          developing user-friendly web applications and keen to contribute to
-          innovative tech projects. I am ready to expand my knowledge and skills
-          within a team environment.
+          I have 2 years of leadership and operational experience. I recently
+          completed two intensive Front-End JavaScript Development bootcamps,
+          focusing on modern web development tools and technologies. I develop
+          user-friendly, sleek and beautiful web apps. I am ready to expand my
+          knowledge and skills within a team environment.
         </p>
       </Section>
 
-      {/* Work Experience */}
       <Section>
         <SectionTitle>Work Experience</SectionTitle>
         <ExperienceItem>
@@ -230,24 +292,23 @@ const WorkPage = () => {
         </ExperienceItem>
       </Section>
 
-      {/* Projects */}
       <Section>
         <SectionTitle>Projects</SectionTitle>
         <ProjectsGrid>
           {projectsData.map((project) => (
-            <ProjectCard key={project.id} whileHover={{ scale: 1.02 }}>
+            <ProjectCard
+              key={project.id}
+              whileHover={{ scale: 1.02 }}
+              onClick={() => handleProjectClick(project.id)}
+            >
               <ProjectImage src={project.image} alt={project.title} />
               <ProjectTitle>{project.title}</ProjectTitle>
               <ProjectDescription>{project.description}</ProjectDescription>
-              <a href={project.link} target="_blank" rel="noopener noreferrer">
-                View on GitHub
-              </a>
             </ProjectCard>
           ))}
         </ProjectsGrid>
       </Section>
 
-      {/* Education & Training */}
       <Section>
         <SectionTitle>Education & Training</SectionTitle>
         <ExperienceItem>

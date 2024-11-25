@@ -78,7 +78,7 @@ const ProfileCard = () => (
     <Name>Yaseen Fehad</Name>
     <Title>Front-End Developer</Title>
     <Description>
-      A passionate front-end developer skilled in modern web technologies.
+      Front-End developer skilled in modern web technologies.
     </Description>
     <IconRow>
       <SocialIcon
